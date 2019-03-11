@@ -5,8 +5,8 @@ import DeviceInfo from '../components/device_info'
 
 const initialData = {
     command: "Read Holding Reg",
-    startingAddress: undefined,
-    commandLength: undefined,
+    startingAddress: null,
+    commandLength: null,
     id:null
 }
 
@@ -17,16 +17,16 @@ class Hoc extends Component {
             {...initialData}
         ],
         reset: false,
-        deviceData: undefined,
+        deviceData: null,
     }
 
     saveDataToParent = () => {
         let { listOfCommand, device } = this.state;
         const deviceType = this.deviceTypeHandler.getData();
         const command = this.deviceCommandHandler.getData();
-        if(command.startingAddress === undefined || command.commandLength === undefined || command.command === undefined 
-            || deviceType.ipAddress === undefined || deviceType.port === undefined || deviceType.unitId === undefined ||
-            deviceType.device_Type === undefined || deviceType.deviceId === undefined){
+        if(command.startingAddress === null || command.commandLength === null || command.command === null 
+            || deviceType.ipAddress === null || deviceType.port === null || deviceType.unitId === null ||
+            deviceType.device_Type === null || deviceType.deviceId === null){
                 alert("All above fields are mandatory, and filled properly");
                 return;
         }
@@ -40,7 +40,7 @@ class Hoc extends Component {
             device: device,
             reset: true,
             listOfCommand: [{...initialData}],
-            deviceData: undefined,
+            deviceData: null,
         });
         
     }
@@ -48,9 +48,9 @@ class Hoc extends Component {
         let { listOfCommand } = this.state;
         const command = this.deviceCommandHandler.getData();
         const deviceType = this.deviceTypeHandler.getData();
-        if(command.startingAddress === undefined || command.commandLength === undefined || command.command === undefined 
-            || deviceType.ipAddress === undefined || deviceType.port === undefined || deviceType.unitId === undefined ||
-            deviceType.device_Type === undefined || deviceType.deviceId === undefined){
+        if(command.startingAddress === null || command.commandLength === null || command.command === null 
+            || deviceType.ipAddress === null || deviceType.port === null || deviceType.unitId === null ||
+            deviceType.device_Type === null || deviceType.deviceId === null){
                 alert("All above fields are mandatory, and filled properly");
                 return;
         }
@@ -66,7 +66,7 @@ class Hoc extends Component {
         this.setState({
             listOfCommand: listOfCommand,
             reset: false,
-            deviceData: undefined,
+            deviceData: null,
         });
     }
 
@@ -115,8 +115,6 @@ class Hoc extends Component {
             listOfCommand: updateData[0].command,
             reset: false,
             deviceData: updateData[0].deviceType
-        }, () => {
-            console.log(this.state.listOfCommand);
         })
         
     }

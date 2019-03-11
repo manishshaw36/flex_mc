@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 class DeviceCommand extends Component {
     state = {
         command: "Read Holding Reg",
-        startingAddress: undefined,
-        commandLength: undefined,
+        startingAddress: null,
+        commandLength: null,
         id: null
     }
     componentWillMount(){

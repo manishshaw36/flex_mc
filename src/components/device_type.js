@@ -3,26 +3,26 @@ import React, { Component } from 'react';
 
 class DeviceType extends Component {
     state = {
-        ipAddress: undefined,
-        port: undefined,
-        unitId: undefined,
+        ipAddress: null,
+        port: null,
+        unitId: null,
         device_Type: "Inverter",
-        deviceId: undefined
+        deviceId: null
     }
     componentWillReceiveProps(props){
         const { reset, deviceData } = props;
         if(reset){
             this.setState({
-                ipAddress: undefined,
-                port: undefined,
-                unitId: undefined,
+                ipAddress: null,
+                port: null,
+                unitId: null,
                 device_Type: "Inverter",
-                deviceId: undefined
+                deviceId: null
             })
             document.getElementById("err").innerHTML = "Enter perfect IP Address. Must have four Octets ranging[0-255] seperated by ' . '";
             document.getElementById("err").style.color = "black";
         }
-        if(deviceData !== undefined){
+        if(deviceData !== null){
             this.setState({
                 ipAddress: deviceData.ipAddress,
                 port: deviceData.port,
@@ -65,7 +65,7 @@ class DeviceType extends Component {
         let { ipAddress, port, unitId, device_Type, deviceId} = this.state;
         var ipAddressReg = /^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$/gm;
         if(!ipAddressReg.test(ipAddress)){
-            ipAddress = undefined;
+            ipAddress = null;
         }
         return {
             ipAddress,
