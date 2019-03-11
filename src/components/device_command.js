@@ -9,12 +9,12 @@ class DeviceCommand extends Component {
         id: null
     }
     componentWillMount(){
-        this.blahblah(this.props.command);
+        this.commandGotFromHoc(this.props.command);
     }
     componentWillReceiveProps(props){
-        this.blahblah(props.command);
+        this.commandGotFromHoc(props.command);
     }
-    blahblah = (listOfCommand) => {
+    commandGotFromHoc = (listOfCommand) => {
         this.setState({
             command: listOfCommand.command,
             startingAddress: listOfCommand.startingAddress,
