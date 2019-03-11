@@ -14,7 +14,7 @@ class DeviceCommand extends Component {
     componentWillReceiveProps(props){
         this.commandGotFromHoc(props.command);
     }
-    commandGotFromHoc = (listOfCommand) => {
+    commandGotFromHoc = (listOfCommand) => { 
         this.setState({
             command: listOfCommand.command,
             startingAddress: listOfCommand.startingAddress,
